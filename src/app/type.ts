@@ -12,4 +12,5 @@ export interface Product {
 	product_type: string,
 	tag_list: string[],
 	created_at: Date,
+  isHidden: boolean;
 }

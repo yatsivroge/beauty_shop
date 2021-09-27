@@ -27,12 +27,16 @@ input:focus::placeholder{
   opacity: 0;
 }
 
-.grid{
+.grid {
   margin: 80px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap:30px;
   align-items: center;
+}
+
+.grid.list {
+  grid-template-columns: 1fr !important;
 }
 
 .grid article{

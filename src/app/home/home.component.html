@@ -7,22 +7,42 @@
     <option value="price">Price</option>
     <option value="rating">Rating</option>
   </select>
+
+  <label>Filter by</label>
+  <select (change)="onFilter($event);">
+    <option value="price">Price</option>
+    <option value="rating">Rating</option>
+  </select>
+
+  <div *ngIf="filterValue === 'price'" id="price-filter-fileds">
+    <label>from</label>
+    <input id="from-price" type="number">
+    <label>to</label>
+    <input id="to-price" type="number">
+    <button (click)="findByPrice();">Find</button>
+  </div>
+
+  <div *ngIf="filterValue === 'rating'" id="rating-filter-fileds">
+    <label>bigger than</label>
+    <input (change)="onRatingFilter($event);" type="number">
+  </div>
+
 </div>
 <div class="container">
   <div class ="icons">
-    <i class="fa fa-square" onclick="list()"></i>
-    <i class="fa fa-th" onclick="fourColumn()"></i>
+    <i class="fa fa-square" (click)="toList()"></i>
+    <i class="fa fa-th" (click)="toPalette()"></i>
   </div>
-  <main class="grid">
+  <main class="grid" [class.list]="isList">
     <article *ngFor='let product of products|filter:Name: "name"|sort:[SortByParam,"desc"]
-    |paginate: {itemsPerPage: 12,currentPage:p}'>
+    |paginate: {itemsPerPage: 12,currentPage:p}'[hidden]="product.isHidden">
       <img src="{{product.image_link}}" alt="">
       <div class="text">
         <div class="info">{{ product.name }}</div>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint, mollitia!</p>
         <p>{{product.rating}}</p>
         <p>{{product.price}} $</p>
-        <button (click)=addtocart(product)>Add to cart</button>
+        <button (click)=addToCart(product)>Add to cart</button>
       </div>
     </article>
   </main>
