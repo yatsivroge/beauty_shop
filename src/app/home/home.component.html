@@ -1,0 +1,30 @@
+<div class="search">
+  <label>Search brand : </label>
+  <input [(ngModel)]='Name' placeholder=" Brand name ">
+
+  <label>Sort by</label>
+  <select [(ngModel)]='SortByParam'>
+    <option value="price">Price</option>
+    <option value="rating">Rating</option>
+  </select>
+</div>
+<div class="container">
+  <div class ="icons">
+    <i class="fa fa-square" onclick="list()"></i>
+    <i class="fa fa-th" onclick="fourColumn()"></i>
+  </div>
+  <main class="grid">
+    <article *ngFor='let product of products|filter:Name: "name"|sort:[SortByParam,"desc"]
+    |paginate: {itemsPerPage: 12,currentPage:p}'>
+      <img src="{{product.image_link}}" alt="">
+      <div class="text">
+        <div class="info">{{ product.name }}</div>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint, mollitia!</p>
+        <p>{{product.rating}}</p>
+        <p>{{product.price}} $</p>
+        <button (click)=addtocart(product)>Add to cart</button>
+      </div>
+    </article>
+  </main>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
