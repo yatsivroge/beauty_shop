@@ -12,9 +12,9 @@ import { HeaderComponent } from './header/header.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { FooterComponent } from './footer/footer.component';
-import { CartComponent } from './cart/cart.component';
 
 import {NgxPaginationModule} from 'ngx-pagination';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     FilterPipe,
     SortPipe,
     FooterComponent,
-    CartComponent
+    CartComponent,
   ],
   imports: [
     BrowserModule,

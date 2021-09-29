@@ -35,8 +35,8 @@ input:focus::placeholder{
   align-items: center;
 }
 
-.grid.list {
-  grid-template-columns: 1fr !important;
+.list {
+  grid-template-columns: repeat(1, 1fr);
 }
 
 .grid article{

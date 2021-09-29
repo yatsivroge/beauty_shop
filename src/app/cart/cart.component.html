@@ -1,54 +1,11 @@
-<ng-container *ngIf="true">
-  <div class="container">
-    <div class="card-table">
-      <div class="card-product">
-        <div class="table table-responsive">
-          <thead>
-            <tr>
-              <th>Sr.No</th>
-              <th>Products name</th>
-              <th>Products image</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>total</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Lip Stick</td>
-              <td>Some img</td>
-              <td>This is make up</td>
-              <td>2000</td>
-              <td>1</td>
-              <td>5000,0</td>
-              <td>
-                <button class="btn btn-danger">
-                  Delete
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </div>
-      </div>
-    </div>
+<div class="cart">
+  <h3>Cart</h3>
+
+  <div class="cart-item" *ngFor="let item of items" >
+    <p>{{ item.name }}</p>
+    <p>{{ item.price | currency }}</p>
   </div>
-</ng-container>
-
-
-<ng-container *ngIf="false">
-  <div class="container">
-    <div class="card">
-      <h5 class="card-title"> My Cart</h5>
-    </div>
-    <div class="center">
-      <img src="" alt="alt" class="image">
-      <h4>Your cart is empty!</h4>
-      <h6>Add item to it now</h6>
-      <button class ="btn btn-primary">Shop now</button>
-    </div>
+  <div class="delete">
+    <button class="btn" (click) = "delete()">delete</button>
   </div>
-
-</ng-container>
+</div>

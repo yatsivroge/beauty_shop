@@ -1,45 +1,40 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Product } from '../type';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-
-  public cartItemList : any =[]
-  public productList = new BehaviorSubject<any>([]);
+	items: Product[] = [];
+  product:any;
+  itemsTotal = 0;
 
   constructor() { }
-  getProducts(){
-    return this.productList.asObservable();
+
+	 addToCart(product: Product) {
+    this.items.push(product);
   }
 
-  setProduct(product : any){
-    this.cartItemList.push(...product);
-    this.productList.next(product);
+
+  getItems() {
+    return this.items;
   }
 
-  addToCart(product : any){
-    this.cartItemList.push(product);
-    this.productList.next(this.cartItemList);
-    this.getTotalPrice();
+  clearCart() {
+    this.items = [];
+    return this.items;
   }
 
-  getTotalPrice(){
-    let grandTotal = 0;
-    this.cartItemList.map((a:any) =>{
-      grandTotal += a.total;
+  calcCartTotal() {
+    this.itemsTotal = 0
+    this.items.forEach(item => {
+      this.itemsTotal += (1 * item.price)
     })
   }
-  removeCartItem(product : any){
-    this.cartItemList.map((a:any, index:any)=>{
-      if(product.id=== a.id){
-        this.cartItemList.splice(index, 1);
-      }
-    })
+
+
+  saveCart() {
+    localStorage.setItem("CartService", JSON.stringify(this.items));
   }
-  removeAllCart(){
-    this.cartItemList = []
-    this.productList.next(this.cartItemList);
-  }
+
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../services/cart.service';
 import { MakeUpService } from '../services/make-up.service';
 import { Product } from '../type';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -20,13 +20,14 @@ export class HomeComponent implements OnInit {
     makeUpService.getProducts().subscribe((products: Product[]) => this.products = products);
   }
 
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
+  }
 
   ngOnInit(): void {
   }
 
-  addToCart(product: any): void {
-    this.cartService.addToCart(product);
-  }
 
   onFilter(event: any): void {
     const filterField = event.target;
