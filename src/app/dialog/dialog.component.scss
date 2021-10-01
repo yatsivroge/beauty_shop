@@ -1,11 +1,19 @@
 .mat-dialog-content{
   border: 1px solid #fff;
   border-radius: 20px;
-  background-color: rgb(243, 184, 184);
+  background: rgb(243, 184, 184);
+  position: relative;
 }
 .container{
+  position: absolute;
+  left: 50%;
+  top:50%;
   display: block;
   margin: 10px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  background: rgb(245, 180, 180);
+  padding: 10px;
 }
 .none{
   display:none;
