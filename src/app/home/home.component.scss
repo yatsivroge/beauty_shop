@@ -95,3 +95,18 @@ input:focus::placeholder{
 pagination-controls{
   text-align: center;
 }
+
+.popup-cart{
+  text-align: center;
+  margin-top: 20px;
+}
+.popup{
+  background: #ef6f6c;
+  border-radius: 20px;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}

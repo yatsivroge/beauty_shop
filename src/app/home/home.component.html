@@ -33,6 +33,8 @@
     <i class="fa fa-square" (click)="toList()"></i>
     <i class="fa fa-th" (click)="toPalette()"></i>
   </div>
+
+
   <main class="grid" [class.list]="isList">
     <article *ngFor='let product of products|filter:Name: "name"|sort:[SortByParam,"desc"]
     |paginate: {itemsPerPage: 12,currentPage:p}'[hidden]="product.isHidden">

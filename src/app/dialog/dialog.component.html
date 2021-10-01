@@ -1,0 +1,23 @@
+<div mat-dialog-content>
+  <i class="fa fa-cart-plus" (click)="toOpen()"></i>
+  <div class="container" [class.none]="isOpen">
+    <h1 mat-dialog-title>Your cart</h1>
+    <div class="cart">
+      <div class="cart-item" *ngFor="let item of items">
+        <p>{{ item.name }}</p>
+        <p>{{ item.price | currency }}</p>
+      </div>
+
+    </div>
+
+
+    <div class="buttons">
+      <div class="delete">
+        <button class="btn" (click)="delete()">delete</button>
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button mat-dialog-close (click)="toClose()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

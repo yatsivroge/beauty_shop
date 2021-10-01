@@ -3,6 +3,8 @@ import { MakeUpService } from '../services/make-up.service';
 import { Product } from '../type';
 import { CartService } from '../services/cart.service';
 
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,13 +18,13 @@ export class HomeComponent implements OnInit {
   filterValue: string = 'price';
   isList: boolean = false;
 
-  constructor(private makeUpService: MakeUpService, private cartService: CartService) {
+
+  constructor(private makeUpService: MakeUpService, private cartService: CartService ) {
     makeUpService.getProducts().subscribe((products: Product[]) => this.products = products);
   }
 
   addToCart(product: Product) {
     this.cartService.addToCart(product);
-    window.alert('Your product has been added to the cart!');
   }
 
   ngOnInit(): void {
@@ -61,5 +63,6 @@ export class HomeComponent implements OnInit {
   toList(): void {
     this.isList = true;
   }
+
 }
 

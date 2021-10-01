@@ -24,17 +24,4 @@ export class CartService {
     this.items = [];
     return this.items;
   }
-
-  calcCartTotal() {
-    this.itemsTotal = 0
-    this.items.forEach(item => {
-      this.itemsTotal += (1 * item.price)
-    })
-  }
-
-
-  saveCart() {
-    localStorage.setItem("CartService", JSON.stringify(this.items));
-  }
-
 }

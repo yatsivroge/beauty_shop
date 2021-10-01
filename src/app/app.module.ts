@@ -13,8 +13,13 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { FooterComponent } from './footer/footer.component';
 
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { CartComponent } from './cart/cart.component';
+
+import { DialogComponent } from './dialog/dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatDialog} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -25,6 +30,10 @@ import { CartComponent } from './cart/cart.component';
     SortPipe,
     FooterComponent,
     CartComponent,
+    DialogComponent,
+  ],
+  entryComponents: [
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,9 +42,11 @@ import { CartComponent } from './cart/cart.component';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+		FlexLayoutModule,
   ],
-  providers: [MakeUpService],
+  providers: [MakeUpService,DialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

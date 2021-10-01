@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DialogComponent } from '../dialog/dialog.component';
+
 
 @Component({
   selector: 'app-header',
@@ -6,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  isOpen = this.dialog.toOpen();
+  
+  constructor(public dialog: DialogComponent) { }
 
-  constructor() { }
 
   ngOnInit(): void {
-    
+
   }
 
 }
